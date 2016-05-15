@@ -89,7 +89,7 @@ module.exports = {
                             "template_type": "generic",
                             "elements": [{
                                 "title": "Match Found",
-                                "subtitle": "John may be able to deliver.",
+                                "subtitle": "John may be able to carry.",
                                 "buttons": [{
                                     "type": "postback",
                                     "title": "Chat",
