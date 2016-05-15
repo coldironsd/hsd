@@ -72,7 +72,7 @@ app.post('/webhook', function (req, res) {
                 sendMessage(event.sender.id, message);
             }else{
 
-                message = app_listener.roleQuestion(event.sender.id, event.message.text);
+                message = {text: "Do you want to send or carry?"};
                 sendMessage(event.sender.id, message);
             }
 
