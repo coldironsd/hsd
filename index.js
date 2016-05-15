@@ -1,6 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
+var app_listener = require('app_listener');
+var carrier_listener = require('carrier_listener');
+var sender_listener = require('sender_listener');
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -26,15 +29,17 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
         var event = events[i];
-        // if (event.message && event.message.text) {
-        //     sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-        // }
+        
         if (event.message && event.message.text) {
-            if (!kittenMessage(event.sender.id, event.message.text)) {
-                sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-            }
-        } else if (event.postback) {
-            console.log("Postback received: " + JSON.stringify(event.postback));
+            
+            if (sender_listener.whatQuestion(event.sender.id, event.message.text)){}
+            else if (sender_listener.whenQuestion(event.sender.id, event.message.text)){}
+            else if (sender_listener.whereQuestion(event.sender.id, event.message.text)){}
+            else if (sender_listener.howMuchQuestion(event.sender.id, event.message.text)){}                
+            else if (carrier_listener.fromWhereQuestion(event.sender.id, event.message.text)){}
+            else if (carrier_listener.toWhereQuestion(event.sender.id, event.message.text)){}
+            else if (carrier_listener.feeQuestion(event.sender.id, event.message.text)){}
+            else (app_listener.roleQuestion(event.sender.id, event.message.text)){}
         }
     }
     res.sendStatus(200);
