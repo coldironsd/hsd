@@ -1,7 +1,7 @@
 module.exports = {
 	fromWhereQuestion: function (recipientId, text) {
 	    
-	    if (text === "deliver") {
+	    if (text === "carry") {
 	            
 			message = {text: "From where do you want to pick up?"};
 

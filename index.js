@@ -32,12 +32,7 @@ app.post('/webhook', function (req, res) {
         
         if (event.message && event.message.text) {
             
-            sendMessage(event.sender.id, {text: "Echo: " + '5'});
-            
-            // if(app_listener.roleQuestion(event.sender.id, event.message.text) != false){
-            //     message = app_listener.roleQuestion(event.sender.id, event.message.text);
-            //     sendMessage(event.sender.id, message);
-            // }
+            // sendMessage(event.sender.id, {text: "Echo: " + '5'});
             
             if (sender_listener.whatQuestion(event.sender.id, event.message.text) != false){
 
@@ -71,7 +66,12 @@ app.post('/webhook', function (req, res) {
 
                 message = app_listener.roleQuestion(event.sender.id, event.message.text);
                 sendMessage(event.sender.id, message);
+            }else if (app_listener.foundMatch(event.sender.id, event.message.text) != false){
+
+                message = app_listener.foundMatch(event.sender.id, event.message.text);
+                sendMessage(event.sender.id, message);
             }
+
         }
     }
     res.sendStatus(200);
@@ -94,48 +94,4 @@ function sendMessage(recipientId, message) {
             console.log('Error: ', response.body.error);
         }
     });
-};
-
-// send rich message with kitten
-function kittenMessage(recipientId, text) {
-    
-    text = text || "";
-    var values = text.split(' ');
-    
-    if (values.length === 3 && values[0] === 'kitten') {
-        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-            
-            var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
-            
-            message = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "Kitten",
-                            "subtitle": "Cute kitten picture",
-                            "image_url": imageUrl ,
-                            "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show kitten"
-                                }, {
-                                "type": "postback",
-                                "title": "I like this",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            }]
-                        }]
-                    }
-                }
-            };
-    
-            sendMessage(recipientId, message);
-            
-            return true;
-        }
-    }
-    
-    return false;
-    
 };

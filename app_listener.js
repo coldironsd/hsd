@@ -78,43 +78,37 @@ module.exports = {
     },
 
     // Match found. Do you want to talk to him? Chat or Ignore.
-    foundMatch: function foundMatch(recipientId, text) {
+    foundMatch: function (recipientId, text) {
+                            
+        if (text === "20") {
+                            
+                message = {
+                    "attachment": {
+                        "type": "template",
+                        "payload": {
+                            "template_type": "generic",
+                            "elements": [{
+                                "title": "Found match",
+                                "subtitle": "John can deliver",
+                                "buttons": [{
+                                    "type": "postback",
+                                    "title": "Chat",
+                                    "payload": "User " + recipientId + " wants to chat ",
 
-        text = text || "";
-        
-        if (text === 'find match') {
+                                    }, {
+                                    "type": "postback",
+                                    "title": "Ignore",
+                                    "payload": "User " + recipientId + " wants to ignore ",
 
-            message = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "Found Match",
-                            "subtitle": "John Lee",
-                            // "image_url": imageUrl ,
-                            "buttons": [{
-                                "type": "postback",
-                                "url": imageUrl,
-                                "title": "Chat",
-                                "payload": "User " + recipientId + " Start Chat " + foundRecipientId,
-                            }, {
-                                "type": "postback",
-                                "title": "Ignore",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                }]
                             }]
-                        }]
+                        }
                     }
-                }
-            };
+                };
 
-            sendMessage(recipientId, message);
-            
-            return true;
-
+                return message;   
         }
-        
-        return false;    
+        return false;
     },
 
     // send rich message with confirmation
