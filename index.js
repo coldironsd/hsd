@@ -1,9 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
-// var app_listener = require('app_listener');
-// var carrier_listener = require('carrier_listener');
-// var sender_listener = require('sender_listener');
+var app_listener = require('app_listener');
+var carrier_listener = require('carrier_listener');
+var sender_listener = require('sender_listener');
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -32,9 +32,9 @@ app.post('/webhook', function (req, res) {
         
         if (event.message && event.message.text) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-             // if (!kittenMessage(event.sender.id, event.message.text)) {
-             //     sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-             // }
+             if (!kittenMessage(event.sender.id, event.message.text)) {
+                 sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+             }
             // test = app_listener.roleQuestion(event.sender.id, event.message.text)
             // if(test){
             //     sendMessage(recipientId, test);
