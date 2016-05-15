@@ -35,7 +35,7 @@ module.exports = {
 
         if (text === "start") {
 
-            message = {text: "Do you want to send or deliver?"};
+            message = {text: "Do you want to send or carry?"};
             
             return message;
         }
