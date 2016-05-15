@@ -1,9 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
-var app_listener = require('app_listener');
-var carrier_listener = require('carrier_listener');
-var sender_listener = require('sender_listener');
+// var app_listener = require('app_listener');
+// var carrier_listener = require('carrier_listener');
+// var sender_listener = require('sender_listener');
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
