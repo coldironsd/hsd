@@ -38,7 +38,7 @@ app.post('/webhook', function (req, res) {
             test = app_listener.roleQuestion(event.sender.id, event.message.text);
             sendMessage(event.sender.id, {text: "Echo: " + test});
             if(test){
-                sendMessage(recipientId, test);
+                
             }
             // if (sender_listener.whatQuestion(event.sender.id, event.message.text)){}
             // else if (sender_listener.whenQuestion(event.sender.id, event.message.text)){}

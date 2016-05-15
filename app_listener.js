@@ -36,8 +36,8 @@ module.exports = {
         if (text === "start") {
 
             message = {text: "Do you want to send or deliver?"};
-            
-            return message;
+            sendMessage(recipientId, message);
+            return true;
         }
         return false;
     },
