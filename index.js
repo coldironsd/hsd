@@ -70,7 +70,7 @@ app.post('/webhook', function (req, res) {
 
                 message = app_listener.foundMatch(event.sender.id, event.message.text);
                 sendMessage(event.sender.id, message);
-            }else{
+            }else if (event.message.text === "Hi" || event.message.text === "hi") {
 
                 message = {text: "Do you want to send or carry?"};
                 sendMessage(event.sender.id, message);
