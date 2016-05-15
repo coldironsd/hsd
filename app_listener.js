@@ -32,6 +32,17 @@ function start(recipientId, text) {
     return true;
 };
 
+function roleQuestion(recipientId, text) {
+    
+    if (text === "start") {
+            
+        message = {text: "Do you want to send or deliver?"}
+        sendMessage(recipientId, message)
+        return true
+    }
+    return false
+}
+
 // send rich message with confirmation
 function confirm(recipientId, text) {
     
