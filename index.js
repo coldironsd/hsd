@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
-// var app_listener = require('app_listener');
+var app_listener = require('./app_listener');
 // var carrier_listener = require('carrier_listener');
 // var sender_listener = require('sender_listener');
 var app = express();
@@ -31,7 +31,7 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         
         if (event.message && event.message.text) {
-            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+            
              if (!kittenMessage(event.sender.id, event.message.text)) {
                  sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
              }
