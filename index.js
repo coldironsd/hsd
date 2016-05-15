@@ -32,9 +32,10 @@ app.post('/webhook', function (req, res) {
         
         if (event.message && event.message.text) {
             
-            test = app_listener.roleQuestion(event.sender.id, event.message.text);
-            json = JSON.parse(test);
-            sendMessage(event.sender.id, {text: "Echo: " + json['text']});
+            sendMessage(event.sender.id, {text: "Echo: " + '1'});
+            // test = app_listener.roleQuestion(event.sender.id, event.message.text);
+            // json = JSON.parse(test);
+            // sendMessage(event.sender.id, {text: "Echo: " + json['text']});
             
             // if (sender_listener.whatQuestion(event.sender.id, event.message.text)){}
             // else if (sender_listener.whenQuestion(event.sender.id, event.message.text)){}
