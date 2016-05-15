@@ -55,18 +55,18 @@ app.post('/webhook', function (req, res) {
 
                 message = sender_listener.howMuchQuestion(event.sender.id, event.message.text);
                 sendMessage(event.sender.id, message);
-            // }else if (carrier_listener.fromWhereQuestion(event.sender.id, event.message.text) != false){
+            }else if (carrier_listener.fromWhereQuestion(event.sender.id, event.message.text) != false){
 
-            //     message = carrier_listener.fromWhereQuestion(event.sender.id, event.message.text);
-            //     sendMessage(event.sender.id, message);
-            // }else if (carrier_listener.toWhereQuestion(event.sender.id, event.message.text) != false){
+                message = carrier_listener.fromWhereQuestion(event.sender.id, event.message.text);
+                sendMessage(event.sender.id, message);
+            }else if (carrier_listener.toWhereQuestion(event.sender.id, event.message.text) != false){
 
-            //     message = carrier_listener.toWhereQuestion(event.sender.id, event.message.text);
-            //     sendMessage(event.sender.id, message);
-            // }else if (carrier_listener.feeQuestion(event.sender.id, event.message.text) != false){
+                message = carrier_listener.toWhereQuestion(event.sender.id, event.message.text);
+                sendMessage(event.sender.id, message);
+            }else if (carrier_listener.feeQuestion(event.sender.id, event.message.text) != false){
 
-            //     message = carrier_listener.feeQuestion(event.sender.id, event.message.text);
-            //     sendMessage(event.sender.id, message);
+                message = carrier_listener.feeQuestion(event.sender.id, event.message.text);
+                sendMessage(event.sender.id, message);
             }else if (app_listener.roleQuestion(event.sender.id, event.message.text) != false){
 
                 message = app_listener.roleQuestion(event.sender.id, event.message.text);
