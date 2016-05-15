@@ -1,5 +1,5 @@
 module.exports = {
-	whatQuestion: function whatQuestion(recipientId, text) {
+	whatQuestion: function (recipientId, text) {
 	    
 	    if (text === "send") {
 	            
@@ -10,7 +10,7 @@ module.exports = {
 		return false;
 	},
 
-	whenQuestion: function whenQuestion(recipientId, text) {
+	whenQuestion: function (recipientId, text) {
 	    
 	    if (text === "book") {
 	            
@@ -21,7 +21,7 @@ module.exports = {
 		return false;
 	},
 
-	whereQuestion: function whereQuestion(recipientId, text) {
+	whereQuestion: function (recipientId, text) {
 	    
 	    if (text === "9am") {
 	            
@@ -32,7 +32,7 @@ module.exports = {
 		return false;
 	},
 
-	howMuchQuestion: function howMuchQuestion(recipientId, text) {
+	howMuchQuestion: function (recipientId, text) {
 	    
 	    if (text === "Toronto") {
 	            

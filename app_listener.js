@@ -1,8 +1,6 @@
 module.exports = {
     // System ask user to 'Send / Carry'. if send
-    start: function start(recipientId, text) {
-
-        var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
+    start: function (recipientId, text) {
         
         message = {
             "attachment": {
@@ -33,7 +31,7 @@ module.exports = {
         return true;
     },
 
-    roleQuestion: function roleQuestion(recipientId, text) {
+    roleQuestion: function (recipientId, text) {
 
         if (text === "start") {
 
@@ -45,7 +43,7 @@ module.exports = {
     },
 
     // send rich message with confirmation
-    confirm: function confirm(recipientId, text) {
+    confirm: function (recipientId, text) {
 
         text = text || "";
 

@@ -1,5 +1,5 @@
 module.exports = {
-	fromWhereQuestion: function fromWhereQuestion(recipientId, text) {
+	fromWhereQuestion: function (recipientId, text) {
 	    
 	    if (text === "deliver") {
 	            
@@ -10,7 +10,7 @@ module.exports = {
 		return false
 	},
 
-	toWhereQuestion: function toWhereQuestion(recipientId, text) {
+	toWhereQuestion: function (recipientId, text) {
 	    
 	    if (text === "ottawa") {
 	            
@@ -21,7 +21,7 @@ module.exports = {
 		return false
 	},
 
-	feeQuestion: function feeQuestion(recipientId, text) {
+	feeQuestion: function (recipientId, text) {
 	    
 	    if (text === "toronto") {
 	            
