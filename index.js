@@ -39,10 +39,10 @@ app.post('/webhook', function (req, res) {
             //     sendMessage(event.sender.id, message);
             // }
             
-            // if (sender_listener.whatQuestion(event.sender.id, event.message.text) != false){
+            if (sender_listener.whatQuestion(event.sender.id, event.message.text) != false){
 
-            //     message = sender_listener.whatQuestion(event.sender.id, event.message.text);
-            //     sendMessage(event.sender.id, message);
+                message = sender_listener.whatQuestion(event.sender.id, event.message.text);
+                sendMessage(event.sender.id, message);
             // }else if (sender_listener.whenQuestion(event.sender.id, event.message.text) != false){
 
             //     message = sender_listener.whenQuestion(event.sender.id, event.message.text);
@@ -67,8 +67,7 @@ app.post('/webhook', function (req, res) {
 
             //     message = carrier_listener.feeQuestion(event.sender.id, event.message.text);
             //     sendMessage(event.sender.id, message);
-            // }else 
-            if (app_listener.roleQuestion(event.sender.id, event.message.text) != false){
+            }else if (app_listener.roleQuestion(event.sender.id, event.message.text) != false){
 
                 message = app_listener.roleQuestion(event.sender.id, event.message.text);
                 sendMessage(event.sender.id, message);
