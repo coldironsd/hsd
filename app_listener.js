@@ -88,8 +88,8 @@ module.exports = {
                         "payload": {
                             "template_type": "generic",
                             "elements": [{
-                                "title": "Found match",
-                                "subtitle": "John can deliver",
+                                "title": "Match Found",
+                                "subtitle": "John may be able to deliver.",
                                 "buttons": [{
                                     "type": "postback",
                                     "title": "Chat",
