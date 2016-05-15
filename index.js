@@ -33,9 +33,10 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             
             sendMessage(event.sender.id, {text: "Echo: " + '3'});
-            message = app_listener.roleQuestion(event.sender.id, event.message.text);
-            if(message != false){
-                sendMessage(event.sender.id, message);
+            // message = app_listener.roleQuestion(event.sender.id, event.message.text);
+            if(app_listener.roleQuestion(event.sender.id, event.message.text) != false){
+                // sendMessage(event.sender.id, message);
+                sendMessage(event.sender.id, {text: "Echo: " + '3.5'});
             }
             
             
