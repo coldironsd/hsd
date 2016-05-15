@@ -37,11 +37,11 @@ module.exports = {
 
         if (text === "start") {
 
-            message = {text: "Do you want to send or deliver?"}
-            sendMessage(recipientId, message)
-            return true
+            message = {text: "Do you want to send or deliver?"};
+            
+            return message;
         }
-        return false
+        return false;
     },
 
     // send rich message with confirmation
@@ -156,5 +156,5 @@ module.exports = {
     }
 }
 // var zemba = function () {
-    
+
 // }

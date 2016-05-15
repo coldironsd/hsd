@@ -3,43 +3,43 @@ module.exports = {
 	    
 	    if (text === "send") {
 	            
-			message = {text: "What do you want to send?"}
-			sendMessage(recipientId, message)
-			return true
+			message = {text: "What do you want to send?"};
+			
+			return message;
 		}
-		return false
+		return false;
 	},
 
 	whenQuestion: function whenQuestion(recipientId, text) {
 	    
 	    if (text === "book") {
 	            
-			message = {text: "When do you want to send?"}
-			sendMessage(recipientId, message)
-			return true
+			message = {text: "When do you want to send?"};
+			
+			return message;
 		}
-		return false
+		return false;
 	},
 
 	whereQuestion: function whereQuestion(recipientId, text) {
 	    
 	    if (text === "9am") {
 	            
-			message = {text: "Where do you want to send?"}
-			sendMessage(recipientId, message)
-			return true
+			message = {text: "Where do you want to send?"};
+
+			return message;
 		}
-		return false
+		return false;
 	},
 
 	howMuchQuestion: function howMuchQuestion(recipientId, text) {
 	    
 	    if (text === "Toronto") {
 	            
-			message = {text: "how much do you want to pay?"}
-			sendMessage(recipientId, message)
-			return true
+			message = {text: "how much do you want to pay?"};
+
+			return message;
 		}
-		return false
+		return false;
 	}
 }
