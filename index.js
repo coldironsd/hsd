@@ -67,7 +67,7 @@ app.post('/webhook', function (req, res) {
 
                 message = carrier_listener.feeQuestion(event.sender.id, event.message.text);
                 sendMessage(event.sender.id, message);
-            }else (app_listener.roleQuestion(event.sender.id, event.message.text) != false){
+            }else if (app_listener.roleQuestion(event.sender.id, event.message.text) != false){
 
                 message = app_listener.roleQuestion(event.sender.id, event.message.text);
                 sendMessage(event.sender.id, message);
