@@ -70,6 +70,10 @@ app.post('/webhook', function (req, res) {
 
                 message = app_listener.foundMatch(event.sender.id, event.message.text);
                 sendMessage(event.sender.id, message);
+            }else{
+
+                message = app_listener.roleQuestion(event.sender.id, event.message.text);
+                sendMessage(event.sender.id, message);
             }
 
         }
