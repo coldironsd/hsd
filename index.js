@@ -33,6 +33,8 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             
             sendMessage(event.sender.id, {text: "Echo: " + '1'});
+            message = {text: "Do you want to send or deliver?"};
+            sendMessage(event.sender.id, message);
             // test = app_listener.roleQuestion(event.sender.id, event.message.text);
             // json = JSON.parse(test);
             // sendMessage(event.sender.id, {text: "Echo: " + json['text']});
