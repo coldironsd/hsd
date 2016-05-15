@@ -31,11 +31,14 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         
         if (event.message && event.message.text) {
-            // kittenMessage(recipientId, text);
-            test = app_listener.roleQuestion(event.sender.id, event.message.text)
-            if(test){
-                sendMessage(recipientId, test);
-            }
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+             if (!kittenMessage(event.sender.id, event.message.text)) {
+                 sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+             }
+            // test = app_listener.roleQuestion(event.sender.id, event.message.text)
+            // if(test){
+            //     sendMessage(recipientId, test);
+            // }
             // if (sender_listener.whatQuestion(event.sender.id, event.message.text)){}
             // else if (sender_listener.whenQuestion(event.sender.id, event.message.text)){}
             // else if (sender_listener.whereQuestion(event.sender.id, event.message.text)){}
